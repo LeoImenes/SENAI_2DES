@@ -1,26 +1,14 @@
--- SQL (--DDL --DML --DCL)
+drop database if exists gym; 
 
--- DDL - desenvolvimento (create, drop, alter, show)
+create database  gym;
 
-
-
--- Criamos o cabeçalho do script de criação
-
-drop database if exists gym; -- Apaga a ultima versão do BD se existir
-
-create database gym; -- Cria a nova versão BD
-
-show databases; -- Mostra todos os BDs criados
-
-use gym; -- Acessa o BD criados
+use gym;
 
 
 
--- Criação das tabelas
+create table Clientes(
 
-create table clientes(
-
-    id_cliente int auto_increment,
+   cliente int,
 
    nome varchar(50) not null,
 
@@ -30,41 +18,50 @@ create table clientes(
 
     peso decimal not null
 
-    constraint pk_cliente primary key (id_cliente)
-
 );
 
 create table telefones(
-    id_cliente int not null,
-    num_telefone varchar(14) not null
-
-    
+    cliente int not null,
+    telefone varchar(14) not null
 
 );
 
 create table fichas(
-    id_cliente int not null,
-    id_exercicio int not null,
-    dia_semana varchar(15) not null,
+    cliente int not null,
+    exercicio int not null,
+    semana varchar(15) not null,
     serie  varchar(20) not null
 
 
 );
 
 create table exercicios(
-    id_exercicio int not null,
+    exercicio int not null,
     descricao varchar(40) not null,
-    grupo_muscular varchar(15)
+    grupo_muscular varchar(15),
     aparelho varchar(15)
 
 );
 
---Relacionamentos
+
+--RELACINONAMENTO ENTRE TABELAS
+
+alter table Clientes
+
+add constraint cliente
+
+primary key (cliente) references Clientes(cliente)
+
+on delete cascade
+
+on update cascade;
+
+
 alter table telefones
 
-add constraint fk_telefone_cliente
+add constraint fk_cliente
 
-foreign key (id_cliente) references telefones(id_cliente)
+foreign key (cliente) references telefones(cliente)
 
 on delete cascade
 
@@ -73,13 +70,9 @@ on update cascade;
 
 alter table fichas
 
-add constraint fk_cliente_ficha
+add constraint fk_cliente
 
-foreign key (id_cliente) references fichas(id_cliente)
-
-add constraint fk_cliente_ficha
-
-foreign key (id_exercicio) references fichas(id_exercicio)
+foreign key (cliente) references fichas(cliente)
 
 on delete cascade
 
@@ -87,21 +80,25 @@ on update cascade;
 
 
 
+alter table fichas
+
+add constraint fk_exercicio
+
+foreign key (cliente) references fichas(exercicio)
+
+on delete cascade
+
+on update cascade;
 
 
+alter table exercicios
 
--- Visualizando os resultados 
+add constraint fk_exercicio
 
-show databases;
+foreign key (cliente) references exercicios(exercicio)
 
-show tables;
+on delete cascade
 
-describe motoristas;
+on update cascade;
 
-describe esclalas;
 
-describe linhas;
-
-describe pontos;
-
-describe horarios;
