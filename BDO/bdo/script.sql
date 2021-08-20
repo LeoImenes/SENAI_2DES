@@ -1,104 +1,44 @@
-drop database if exists gym; 
-
-create database  gym;
-
+drop database if exists gym;
+create database gym;
 use gym;
 
-
-
-create table Clientes(
-
-   cliente int,
-
-   nome varchar(50) not null,
-
-    nascimento data not null,
-
-    sexo char not null,
-
+create table clientes(
+    id_cliente integer primary key auto_increment,
+    nome varchar(50) not null,
+    nascimento Date not null,
+    sexo char(1) not null,
     peso decimal not null
-
-);
-
-create table telefones(
-    cliente int not null,
-    telefone varchar(14) not null
-
 );
 
 create table fichas(
-    cliente int not null,
-    exercicio int not null,
-    semana varchar(15) not null,
-    serie  varchar(20) not null
+    id_cliente integer not null,
+    id_exercicio integer not null,
+    dia_semana varchar(15) not null,
+    objetivo varchar(15) not null,
+    serie varchar(20) not null
+);
 
-
+create table telefones(
+    id_cliente integer not null,
+    num_telefone varchar(14) not null
 );
 
 create table exercicios(
-    exercicio int not null,
+    id_exercicio integer not null primary key,
     descricao varchar(40) not null,
     grupo_muscular varchar(15),
-    aparelho varchar(15)
-
+    aparelho varchar(20)
 );
 
+alter table fichas
+add constraint fk_fichas_clientes
+foreign key(id_cliente) references clientes(id_cliente);
 
---RELACINONAMENTO ENTRE TABELAS
-
-alter table Clientes
-
-add constraint cliente
-
-primary key (cliente) references Clientes(cliente)
-
-on delete cascade
-
-on update cascade;
-
+alter table fichas 
+add constraint fk_fichas_exercicios
+foreign key (id_exercicio) references exercicios(id_exercicio);
 
 alter table telefones
-
-add constraint fk_cliente
-
-foreign key (cliente) references telefones(cliente)
-
-on delete cascade
-
-on update cascade;
-
-
-alter table fichas
-
-add constraint fk_cliente
-
-foreign key (cliente) references fichas(cliente)
-
-on delete cascade
-
-on update cascade;
-
-
-
-alter table fichas
-
-add constraint fk_exercicio
-
-foreign key (cliente) references fichas(exercicio)
-
-on delete cascade
-
-on update cascade;
-
-
-alter table exercicios
-
-add constraint fk_exercicio
-
-foreign key (cliente) references exercicios(exercicio)
-
-on delete cascade
-
-on update cascade;
-
+add constraint fk_telefone_clientes
+foreign key (id_cliente) references clientes(id_cliente);
 
