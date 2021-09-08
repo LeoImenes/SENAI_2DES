@@ -16,24 +16,24 @@ function btn_create() {
 
     task.value = "";
 
-    let buttonAlert = document.createElement("button");
-    buttonAlert.innerHTML = "<img src = 'img/alert.png'>";
+    let Alert = document.createElement("button");
+    Alert.innerHTML = "<img src = 'img/alert.png'>";
 
-    buttonAlert.addEventListener("click", () => {
+    Alert.addEventListener("click", () => {
         btn_alert(buttonAlert);
     });
 
-    let colAlert = document.createElement("td");
-    colAlert.appendChild(buttonAlert);
+    let Alert = document.createElement("td");
+    Alert.appendChild(buttonAlert);
 
-    row.appendChild(colAlert);
+    row.appendChild(Alert);
 
 
-    let buttonTrash = document.createElement("button");
-    buttonTrash.innerHTML = "<img src = 'img/trash.png'>";
+    let butTrash = document.createElement("button");
+    butTrash.innerHTML = "<img src = 'img/trash.png'>";
 
-    buttonTrash.addEventListener("click", () => {
-        btn_trash(buttonTrash);
+    butTrash.addEventListener("click", () => {
+        btn_trash(butTrash);
     });
 
     let colTrash = document.createElement("td");
