@@ -1,4 +1,4 @@
-var table = document.querySelector("#data");
+var table = document.querySelector("#dados");
 
 var task = document.querySelector("#input");
 
