@@ -31,6 +31,6 @@ public class PedidoProcess {
 		pedidos.add(new Pedido("Ana","Rua Machado de Assis, 21","X-Tudo"));
 		pedidos.add(new Pedido("Marcelo Silva","Rua Paulo Coelho, 12","X-Bacon"));
 		pedidos.add(new Pedido("Maria Mello","Rua Olavo Bilac, 454","Cachorro Quente"));
-		pedidos.add(new Pedido("Bruno Gonçalves","Av. Pacheco Aguiar, 11","Pizza Mussarela"));
+		pedidos.add(new Pedido("Bruno GonÃ§alves","Av. Pacheco Aguiar, 11","Pizza Mussarela"));
 	}
 }

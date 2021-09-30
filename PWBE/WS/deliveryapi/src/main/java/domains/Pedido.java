@@ -22,7 +22,7 @@ public class Pedido {
 	private Date horaInicioEntrega;
 	private Date horaFimEntrega;
 
-	// Atributos uteis para manipulaÁ„o de data e hora
+	// Atributos uteis para manipula√ß√£o de data e hora
 	SimpleDateFormat fd = new SimpleDateFormat("yyyy-MM-dd");
 	SimpleDateFormat fh = new SimpleDateFormat("hh:mm");
 
@@ -60,7 +60,7 @@ public class Pedido {
 			if (!csv[7].equals("null"))
 				this.horaFimEntrega = fh.parse(csv[7]);
 		} catch (ParseException e) {
-			System.out.println("Erro na convers„o de tipos de dados " + e);
+			System.out.println("Erro na convers√£o de tipos de dados " + e);
 		}
 	}
 
@@ -76,7 +76,7 @@ public class Pedido {
 			this.horaInicioEntrega = fh.parse(horaInicioEntrega);
 			this.horaFimEntrega = fh.parse(horaFimEntrega);
 		} catch (ParseException e) {
-			System.out.println("Erro na convers„o de tipos de dados " + e);
+			System.out.println("Erro na convers√£o de tipos de dados " + e);
 		}
 	}
 
@@ -137,7 +137,7 @@ public class Pedido {
 		this.horaInicioEntrega = horaInicioEntrega;
 	}
 
-	// caso n„o seja passado atributo configura a hora do sistema
+	// caso n√£o seja passado atributo configura a hora do sistema
 	public void setHoraInicioEntrega() {
 		this.horaInicioEntrega = new Date();
 	}
@@ -150,7 +150,7 @@ public class Pedido {
 		this.horaFimEntrega = horaFimEntrega;
 	}
 
-	// caso n„o seja passado atributo configura a hora do sistema
+	// caso n√£o seja passado atributo configura a hora do sistema
 	public void setHoraFimEntrega() {
 		this.horaFimEntrega = new Date();
 	}
@@ -214,7 +214,7 @@ public class Pedido {
 			if(horaInicioEntrega != null)json.put("horaInicioEntrega", fh.format(this.horaInicioEntrega));
 			if(horaFimEntrega != null)json.put("horaFimEntrega", fh.format(this.horaFimEntrega));
 		} catch (JSONException e) {
-			System.out.println("Erro na convers„o JSON " + e);
+			System.out.println("Erro na convers√£o JSON " + e);
 		}		
 		return json;
 	}

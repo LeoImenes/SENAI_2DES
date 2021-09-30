@@ -13,7 +13,7 @@ import domains.Pedido;
 public class PedidoDAO {
 	private BufferedReader br;
 	private BufferedWriter bw;
-	private String arquivo = "C:\\dbs\\pedidos.csv";
+	private String arquivo = "c:\\dbs\\pedidos.csv";
 	private ArrayList<Pedido> pedidos;
 	private Pedido pedido;
 	
